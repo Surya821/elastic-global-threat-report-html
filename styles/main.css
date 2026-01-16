@@ -1,0 +1,315 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #e5e7eb;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.page-indicator {
+    font-size: 14px;
+    color: #374151;
+    font-weight: 500;
+    min-width: 60px;
+    text-align: center;
+}
+
+/* Report Container */
+.report-container {
+    width: 210mm;
+    min-height: 297mm;
+    background: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: visible;
+}
+
+/* Page Styles */
+.report-page {
+    position: relative;
+    width: 210mm;
+    height: 297mm;
+    page-break-after: always;
+}
+
+.page-content {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.page-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, white 80%);
+    z-index: 1;
+}
+
+.page-inner {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.page-header {
+    height: 110px;
+    width: 100%;
+}
+
+.page-header-img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+}
+
+/* Body Content */
+.page-body {
+    flex: 1;
+    padding: 0 80px; /* 96px = 24 * 4 (tailwind mx-24) */
+    overflow-y: auto;
+}
+
+.topic-title {
+    font-size: 3.75rem; /* 60px - text-6xl */
+    line-height: 1;
+    margin-bottom: 15px; /* mb-6 */
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+.text-content {
+    margin-bottom: 16px; /* mb-4 */
+    line-height: 1.6;
+    text-align: justify;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+/* Footer */
+.page-footer {
+    padding: 0 40px; /* px-10 */
+    margin-top: auto;
+}
+
+.footer-border {
+    border-top: 1px solid black;
+    padding-bottom: 20px; /* pb-5 */
+    margin-top: 40px; /* mt-10 */
+    padding-left: 20px; /* px-5 */
+    padding-right: 20px;
+}
+
+.footer-content {
+    margin-top: 20px; /* mt-5 */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    font-size: 12px; /* text-xs */
+}
+
+.footer-logo {
+    height: 25px;
+    width: auto;
+}
+
+.footer-center {
+    text-align: center;
+    font-weight: 500;
+}
+
+.footer-right {
+    text-align: right;
+    font-weight: 500;
+}
+
+/* Gradient Text Classes */
+.gradient-text-1 {
+    background: linear-gradient(to bottom, #ee4c96, #b852a8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-text-2 {
+    background: linear-gradient(to bottom, #f48dbd, #f7b5d3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-text-3 {
+    background: linear-gradient(to bottom, #f4a2cd, #fceef5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-text-4 {
+    background: linear-gradient(to bottom, #f29bc7, #d697d2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Responsive */
+media print {
+    /* Reset everything for print */
+    * {
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        background: white !important;
+        color: black !important;
+    }
+    
+    body {
+        background: white !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+    
+    /* Hide navigation */
+    .report-nav {
+        display: none !important;
+    }
+    
+    /* Set exact A4 dimensions */
+    .report-container {
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        page-break-before: always;
+        page-break-after: always;
+        page-break-inside: avoid;
+    }
+    
+    /* Each page as a separate page in print */
+    .report-page {
+        width: 210mm !important;
+        height: 297mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        page-break-after: always !important;
+        page-break-inside: avoid !important;
+        position: relative;
+        overflow: visible !important;
+    }
+    
+    /* Ensure backgrounds print */
+    .report-page,
+    .first-page,
+    .second-page,
+    .content-page {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+    }
+    
+    /* Fix background images for print */
+    .first-page,
+    .second-page,
+    .content-page {
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+        background-position: top left !important;
+    }
+    
+    /* Ensure all content fits */
+    .page-content {
+        height: 297mm !important;
+        width: 210mm !important;
+        overflow: visible !important;
+    }
+    
+    /* Fix gradients for print */
+    .gradient-text-1,
+    .gradient-text-2,
+    .gradient-text-3,
+    .gradient-text-4 {
+        color: #ee4c96 !important;
+        -webkit-text-fill-color: #ee4c96 !important;
+        background: none !important;
+    }
+    
+    /* Remove any web-only features */
+    .report-container,
+    .report-page {
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* Add these styles for better print layout */
+@page {
+    size: A4 portrait;
+    margin: 0;
+    padding: 0;
+}
+
+@page :first {
+    margin: 0;
+}
+
+@page :left {
+    margin: 0;
+}
+
+@page :right {
+    margin: 0;
+}
+
+/* Fix for Webkit browsers (Chrome, Safari) */
+@media print {
+    html, body {
+        width: 210mm;
+        height: 297mm;
+        margin: 0 auto !important;
+    }
+}
+
+/* Fix for Firefox */
+@-moz-document url-prefix() {
+    @media print {
+        body {
+            width: 210mm;
+            height: 297mm;
+        }
+        .report-page {
+            break-after: page;
+        }
+    }
+}

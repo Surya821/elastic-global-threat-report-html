@@ -1,0 +1,252 @@
+/* First Page (Cover) */
+.first-page {
+    background-image: url('../assets/images/background.png');
+    background-size: cover;
+    background-position: center;
+    padding-top: 80mm;
+    /* pt-80 */
+    padding-left: 50mm;
+    /* pl-50 */
+    height: 297mm;
+    display: flex;
+    flex-direction: column;
+}
+
+.year-text {
+    font-size: 3rem;
+    /* text-3xl */
+    background: linear-gradient(to bottom, #f29bc7, #d697d2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10mm;
+}
+
+.logo-container {
+    margin-top: 10mm;
+    /* mt-10 */
+    margin-left: 20mm;
+    /* ml-20 */
+    margin-bottom: 20mm;
+}
+
+.page-logo {
+    width: 200px;
+    height: auto;
+}
+
+.title-container {
+    margin-left: 0mm;
+    /* ml-20 */
+}
+
+.title-line-1 {
+    font-size: 9rem;
+    /* text-9xl */
+    background: linear-gradient(to bottom, #ee4c96, #b852a8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.title-line-2 {
+    font-size: 9rem;
+    background: linear-gradient(to bottom, #f48dbd, #f7b5d3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-left: 20mm;
+}
+
+.title-line-3 {
+    font-size: 9rem;
+    background: linear-gradient(to bottom, #f4a2cd, #fceef5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+/* Second Page (Table of Contents) */
+.second-page {
+    background-image: url('../assets/images/background.png');
+    background-size: cover;
+    background-position: center;
+    height: 297mm;
+    padding-top: 80mm;
+    /* pt-80 */
+    padding-left: 40px;
+    /* px-10 */
+    padding-right: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.toc-header {
+    padding-left: 60mm;
+    /* pl-60 */
+    margin-bottom: 10mm;
+    /* mb-10 */
+}
+
+.toc-header p {
+    font-size: 1.25rem;
+    /* text-xl */
+    color: white;
+    line-height: 1.2;
+}
+
+.toc-content {
+    flex: 1;
+    padding-left: 60mm;
+}
+
+.toc-table {
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 220px;
+}
+
+.toc-table tr {
+    height: 60px;
+
+}
+
+.toc-number {
+    padding-right: 20px;
+    /* pr-5 */
+    font-size: 2rem;
+    /* text-3xl */
+    color: white;
+    vertical-align: top;
+}
+
+.toc-title {
+    padding-right: 20px;
+    font-size: 2rem;
+    background: linear-gradient(to bottom, #ee4c96, #b852a8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+.toc-page {
+    font-size: 1rem;
+    /* text-xs */
+    color: white;
+    vertical-align: top;
+    padding-top: 1.5rem;
+
+}
+
+.toc-footer {
+    border-top: 1px solid white;
+    padding-top: 0px;
+    margin-top: auto;
+}
+
+.toc-footer-content {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toc-footer-logo {
+    height: 25px;
+    width: auto;
+}
+
+.toc-footer-text {
+    text-align: right;
+    font-size: 0.75rem;
+    color: white;
+}
+
+/* Main Content Pages */
+.content-page {
+    position: relative;
+}
+
+.page-gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent, white);
+    z-index: 1;
+}
+
+/* Responsive Page Styles */
+@media (max-width: 768px) {
+    .first-page {
+        padding-top: 40mm;
+        padding-left: 20mm;
+    }
+
+    .title-line-1,
+    .title-line-2,
+    .title-line-3 {
+        font-size: 4rem;
+    }
+
+    .second-page {
+        padding-top: 40mm;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .toc-header,
+    .toc-content {
+        padding-left: 20mm;
+    }
+
+    .toc-number,
+    .toc-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* pages.css - ADD THESE STYLES */
+
+/* First Page - Add positioning for print */
+.first-page {
+    background-image: url('../assets/images/background.png');
+    background-size: cover;
+    background-position: center;
+    padding-top: 80mm;
+    padding-left: 50mm;
+    height: 297mm;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Second Page - Add positioning for print */
+.second-page {
+    background-image: url('../assets/images/background.png');
+    background-size: cover;
+    background-position: center;
+    height: 297mm;
+    padding-top: 80mm;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Add a wrapper for content to ensure it stays positioned */
+.page-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Content pages positioning */
+.content-page .page-inner {
+    position: relative;
+    z-index: 2;
+}

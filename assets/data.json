@@ -1,0 +1,29 @@
+{
+    "assets": {
+        "logo": "images/logo.png",
+        "background": "images/background.png",
+        "background1": "images/background1.jpg",
+        "background2": "images/background2.jpg",
+        "background3": "images/background3.jpg",
+        "background4": "images/background4.jpg",
+        "back": "images/back.png",
+        "header": "images/header.jpg"
+    },
+    "sampleData": [
+        {
+            "Month": "2022-01-01",
+            "TVs": 145,
+            "Mobile Phones": 335,
+            "Laptops": 82,
+            "Total": 562
+        }
+    ],
+    "topicData": [
+        {
+            "id": "01",
+            "topic": "Introduction",
+            "bg": "images/background1.jpg",
+            "content": []
+        }
+    ]
+}

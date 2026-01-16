@@ -1,0 +1,91 @@
+/* Table Containers */
+.table-container {
+    margin: 40px 0;
+    width: 100%;
+}
+
+.table-title {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 600; /* font-semibold */
+    margin-bottom: 16px; /* mb-4 */
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+}
+
+/* Table Styles */
+.data-table {
+    width: 100%;
+    border: 1px solid #d1d5db; /* border-gray-300 */
+    border-collapse: collapse;
+    font-size: 0.875rem; /* text-sm */
+    min-width: 600px;
+}
+
+.data-table thead {
+    background-color: #d1d5db; /* bg-gray-300 */
+}
+
+.data-table th {
+    border: 1px solid #d1d5db; /* border-gray-300 */
+    padding: 8px 12px; /* px-3 py-2 */
+    text-align: left;
+    font-weight: 600; /* font-semibold */
+    white-space: nowrap;
+}
+
+.data-table tbody tr {
+    background-color: #f3f4f6; /* bg-gray-100 */
+}
+
+.data-table tbody tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+.data-table td {
+    border: 1px solid #d1d5db; /* border-gray-300 */
+    padding: 8px 12px; /* px-3 py-2 */
+    vertical-align: top;
+}
+
+.data-table tbody tr:hover {
+    background-color: #e5e7eb;
+}
+
+/* Table Scrolling */
+.table-scroll-container {
+    position: relative;
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.table-scroll-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-scroll-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.table-scroll-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.table-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Print Styles for Tables */
+@media print {
+    .data-table {
+        break-inside: avoid;
+    }
+    
+    .table-scroll-container {
+        overflow-x: visible;
+    }
+}

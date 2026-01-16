@@ -1,0 +1,138 @@
+/* print.css - UPDATED VERSION */
+
+@media print {
+    /* Base print reset */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+    }
+    
+    body {
+        width: 210mm !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: white !important;
+    }
+    
+    /* Hide non-printable elements */
+    .report-nav,
+    .nav-btn,
+    button,
+    .page-indicator {
+        display: none !important;
+    }
+    
+    /* Page setup */
+    .report-page {
+        page-break-after: always;
+        page-break-inside: avoid;
+        break-after: page;
+        break-inside: avoid;
+        position: relative !important;
+        display: block !important;
+        width: 210mm !important;
+        height: 297mm !important;
+        min-height: 297mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+    }
+    
+    /* First page - FIXED */
+    .first-page {
+        background-image: url('../assets/images/background.png') !important;
+        background-size: 210mm 297mm !important;
+        background-repeat: no-repeat !important;
+        background-position: center center !important;
+        padding-top: 80mm !important;
+        padding-left: 50mm !important;
+        display: flex !important;
+        flex-direction: column !important;
+        position: relative !important;
+    }
+    
+    /* Second page - FIXED */
+    .second-page {
+        background-image: url('../assets/images/background.png') !important;
+        background-size: 210mm 297mm !important;
+        background-repeat: no-repeat !important;
+        background-position: center center !important;
+        padding-top: 80mm !important;
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        position: relative !important;
+    }
+    
+    /* Content pages */
+    .content-page {
+        background-size: 210mm 297mm !important;
+        background-repeat: no-repeat !important;
+        background-position: center center !important;
+    }
+    
+    /* Ensure content stays in place */
+    .page-content {
+        position: relative !important;
+        z-index: 2 !important;
+        width: 210mm !important;
+        height: 297mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    /* Fix gradients for print */
+    .gradient-text-1,
+    .gradient-text-2,
+    .gradient-text-3,
+    .gradient-text-4 {
+        color: #ee4c96 !important;
+        -webkit-text-fill-color: #ee4c96 !important;
+        background: none !important;
+        -webkit-print-color-adjust: exact !important;
+    }
+    
+    /* Remove any shadows/transforms */
+    .report-container,
+    .report-page {
+        box-shadow: none !important;
+        transform: none !important;
+        filter: none !important;
+        opacity: 1 !important;
+    }
+    
+    /* Footer positioning */
+    .page-footer {
+        position: absolute !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+    
+    /* Charts should be visible */
+    canvas {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}
+
+/* Page margin boxes */
+@page {
+    size: A4 portrait;
+    margin: 0;
+}
+
+@page :first {
+    margin: 0;
+}
+
+@page :left {
+    margin: 0;
+}
+
+@page :right {
+    margin: 0;
+}
