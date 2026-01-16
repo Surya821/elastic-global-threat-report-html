@@ -85,7 +85,7 @@
 }
 
 .toc-header {
-    padding-left: 60mm;
+    padding-left: 30mm;
     /* pl-60 */
     margin-bottom: 10mm;
     /* mb-10 */
@@ -100,7 +100,7 @@
 
 .toc-content {
     flex: 1;
-    padding-left: 60mm;
+    padding-left: 30mm;
 }
 
 .toc-table {
@@ -141,6 +141,7 @@
     color: white;
     vertical-align: top;
     padding-top: 1.5rem;
+    padding-right: 60px;
 
 }
 
