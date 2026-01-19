@@ -145,6 +145,12 @@
 
 }
 
+.second-page .page-content {
+    display: flex;
+    flex-direction: column;
+    height: 96%;
+}
+
 .toc-footer {
     border-top: 1px solid white;
     padding-top: 0px;
