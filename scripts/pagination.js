@@ -8,39 +8,47 @@ class PaginationManager {
         this.chartInstances = {};
         this.init();
     }
-    
+
     init() {
         this.generateAllPages();
         this.scrollToCurrentPage();
     }
-    
+
     generateAllPages() {
         this.container.innerHTML = '';
         this.chartInstances = {};
-        
+
         const pages = [
             this.createFirstPage(),
             this.createSecondPage(),
             ...this.createContentPages()
         ];
-        
+
         this.pages = pages;
         this.totalPages = pages.length;
-        
+
         // Append all pages to container
         pages.forEach((page, index) => {
             page.dataset.pageIndex = index;
             this.container.appendChild(page);
         });
     }
-    
+
+    createWatermark() {
+        return `
+            <div class="page-watermark">
+                CyberSRC
+            </div>
+        `;
+    }
+
     // REMOVE the entire createNavigation method
-    
+
     createFirstPage() {
         const page = document.createElement('div');
         page.className = 'report-page first-page';
         page.id = 'page-1';
-        
+
         page.innerHTML = `
             <div class="page-content">
                 <div class="year-text">2025</div>
@@ -54,64 +62,69 @@ class PaginationManager {
                 </div>
             </div>
         `;
-        
+
         return page;
     }
-    
+
+    generateTOCData() {
+        const pages = window.TextFlowCalculator.generatePages(window.ReportData.topicData);
+        const toc = [];
+
+        pages.forEach((page, index) => {
+            if (page.isFirstPage) {
+                toc.push({
+                    id: page.topic.id,
+                    title: page.topic.topic,
+                    pageNumber: page.pageNumber,
+                    anchor: `#page-${index + 3}`
+                });
+            }
+        });
+
+        return toc;
+    }
+
     createSecondPage() {
         const page = document.createElement('div');
         page.className = 'report-page second-page';
         page.id = 'page-2';
-        
+
+        const tocData = this.generateTOCData();
+
         page.innerHTML = `
+        ${this.createWatermark()}
             <div class="page-content">
                 <div class="toc-header">
                     <p>TABLE</p>
                     <p>OF</p>
                     <p>CONTENT</p>
                 </div>
+    
                 <div class="toc-content">
                     <table class="toc-table">
-                        <tr>
-                            <td class="toc-number">01</td>
-                            <td class="toc-title">Introduction</td>
-                            <td class="toc-page">02</td>
-                        </tr>
-                        <tr>
-                            <td class="toc-number">02</td>
-                            <td class="toc-title">Executive summary</td>
-                            <td class="toc-page">03</td>
-                        </tr>
-                        <tr>
-                            <td class="toc-number">03</td>
-                            <td class="toc-title">Trends and correlations</td>
-                            <td class="toc-page">07</td>
-                        </tr>
-                        <tr>
-                            <td class="toc-number">04</td>
-                            <td class="toc-title">Inside Elastic</td>
-                            <td class="toc-page">37</td>
-                        </tr>
-                        <tr>
-                            <td class="toc-number">05</td>
-                            <td class="toc-title">Threat profiles</td>
-                            <td class="toc-page">42</td>
-                        </tr>
-                        <tr>
-                            <td class="toc-number">06</td>
-                            <td class="toc-title">Recommendations</td>
-                            <td class="toc-page">48</td>
-                        </tr>
-                        <tr>
-                            <td class="toc-number">07</td>
-                            <td class="toc-title">Conclusion</td>
-                            <td class="toc-page">49</td>
-                        </tr>
+                        ${tocData.map((item, index) => `
+                            <tr>
+                                <td class="toc-number">
+                                    ${String(index + 1).padStart(2, '0')}
+                                </td>
+    
+                                <td class="toc-title">
+                                    <a href="${item.anchor}">
+                                        ${item.title}
+                                    </a>
+                                </td>
+    
+                                <td class="toc-page">
+                                    ${String(item.pageNumber).padStart(2, '0')}
+                                </td>
+                            </tr>
+                        `).join('')}
                     </table>
                 </div>
+    
                 <div class="toc-footer">
                     <div class="toc-footer-content">
-                        <img src="${window.ReportData.assets.logo}" alt="logo" class="toc-footer-logo">
+                        <img src="${window.ReportData.assets.logo}" class="toc-footer-logo" />
                         <div class="toc-footer-text">
                             <p>GLOBAL THREAT</p>
                             <p>REPORT 2025</p>
@@ -120,25 +133,26 @@ class PaginationManager {
                 </div>
             </div>
         `;
-        
+
         return page;
     }
-    
+
+
     createContentPages() {
         const contentPages = [];
         const pages = window.TextFlowCalculator.generatePages(window.ReportData.topicData);
-        
+
         pages.forEach((pageData, index) => {
             const page = document.createElement('div');
             page.className = 'report-page content-page';
             page.id = `page-${index + 3}`;
-            
-            // Set background image
+
             page.style.backgroundImage = `url(${pageData.topic.bg})`;
             page.style.backgroundSize = 'cover';
             page.style.backgroundPosition = 'top';
-            
+
             page.innerHTML = `
+            ${this.createWatermark()}
                 <div class="page-gradient-overlay"></div>
                 <div class="page-inner">
                     <div class="page-header">
@@ -164,20 +178,20 @@ class PaginationManager {
                     </div>
                 </div>
             `;
-            
+
             contentPages.push(page);
         });
-        
+
         return contentPages;
     }
-    
+
     renderPageContent(pageData) {
         let html = '';
-        
+
         if (pageData.isFirstPage) {
             html += `<h1 class="topic-title">${pageData.topic.topic}</h1>`;
         }
-        
+
         pageData.content.forEach((block, index) => {
             if (block.type === 'text') {
                 html += `<p class="text-content">${block.value}</p>`;
@@ -192,7 +206,7 @@ class PaginationManager {
                         </div>
                     </div>
                 `;
-                
+
                 // Store chart config for later initialization
                 this.chartInstances[chartId] = block.config;
             } else if (block.type === 'table') {
@@ -219,21 +233,21 @@ class PaginationManager {
                 `;
             }
         });
-        
+
         return html;
     }
-    
+
     initializeChartsOnPage(pageIndex) {
         const page = this.pages[pageIndex];
         if (!page) return;
-        
+
         // Find all chart canvases in this page
         const chartCanvases = page.querySelectorAll('canvas[id^="chart-"]');
-        
+
         chartCanvases.forEach(canvas => {
             const chartId = canvas.id;
             const config = this.chartInstances[chartId];
-            
+
             if (config && !canvas.chartInstance) {
                 try {
                     canvas.chartInstance = window.ChartRenderer.renderChart(config, chartId);
@@ -244,11 +258,11 @@ class PaginationManager {
             }
         });
     }
-    
+
     // REMOVED: nextPage(), prevPage(), goToPage() methods
-    
+
     // REMOVED: updateNavigation() method
-    
+
     scrollToCurrentPage() {
         const page = this.pages[this.currentPage];
         if (page) {

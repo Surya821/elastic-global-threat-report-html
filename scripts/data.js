@@ -1,6 +1,6 @@
 // scripts/data.js
 const assets = {
-    logo: 'assets/images/logo.png',
+    logo: 'assets/images/logo-r.png',
     background: 'assets/images/background.png',
     background1: 'assets/images/background1.jpg',
     background2: 'assets/images/background2.jpg',
@@ -102,6 +102,132 @@ const topicData = [
         id: "01",
         topic: "Introduction",
         bg: assets.background1,
+        content: [
+            {
+                type: "text",
+                value: "consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdam velit impedit eos perspicLorem ipsum dolor sit amet consectetur, adipisicing Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdLorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdam velit impedit eos perspicLorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdam velit impedit eos perspicLorem ipsum dolor sit amet consectetur, adipisicing Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdLorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdam velit impedit eos perspicLorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, eaducimus nisi, ea nesciunt ratione quaeratconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdam velit impedit eos perspicLorem ipsum dolor sit amet consectetur, adipisicing Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdLorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdam velit impedit eos perspicLorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaeratconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdam velit impedit eos perspicLorem ipsum dolor sit amet consectetur, adipisicing Lorem ipsum dolor sit amet consectetur, adipisicing Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdam velit impedit eos perspicLorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdam velit impedit eos perspicLorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdam velit impedit eos perspicLorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdam velit impedit eos perspicLorem ipsum dolor sit amet consectetur, adipisicing elit."
+            },
+            {
+                type: "chart",
+                config: {
+                    type: "stackbar",
+                    title: "Monthly Sales Distribution",
+                    description: "This chart shows product-wise sales trends over the year.",
+                    source: "sampleData",
+                    options: {
+                        xKey: "Month",
+                        yKeys: ["TVs", "Mobile Phones", "Laptops"]
+                    }
+                }
+            },
+            {
+                type: "chart",
+                config: {
+                    type: "pie",
+                    title: "Product Contribution Breakdown",
+                    description: "This pie chart represents the percentage contribution of each product category.",
+                    source: "sampleData",
+                    options: {
+                        monthIndex: 0,
+                        keys: ["TVs", "Mobile Phones", "Laptops"]
+                    }
+                }
+            },
+            {
+                type: "chart",
+                config: {
+                    type: "bubble",
+                    title: "Sales Volume vs Product Performance",
+                    description: "Bubble size indicates total sales while position represents product performance across months.",
+                    source: "sampleData",
+                    options: {
+                        xKey: "TVs",
+                        yKey: "Mobile Phones",
+                        zKey: "Laptops"
+                    }
+                }
+            },
+            {
+                type: "table",
+                config: {
+                    title: "Monthly Product Sales Table",
+                    source: "sampleData",
+                    columns: ["Month", "TVs", "Mobile Phones", "Laptops", "Total"]
+                }
+            },
+            {
+                type: "text",
+                value: "consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet"
+            }
+        ]
+    },
+    {
+        id: "02",
+        topic: "Summary",
+        bg: assets.background2,
+        content: [
+            {
+                type: "text",
+                value: "consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdam velit impedit eos perspicLorem ipsum dolor sit amet consectetur, adipisicing Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdLorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdam velit impedit eos perspicLorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdam velit impedit eos perspicLorem ipsum dolor sit amet consectetur, adipisicing Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdLorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdam velit impedit eos perspicLorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, eaducimus nisi, ea nesciunt ratione quaeratconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdam velit impedit eos perspicLorem ipsum dolor sit amet consectetur, adipisicing Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdLorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdam velit impedit eos perspicLorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaeratconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdam velit impedit eos perspicLorem ipsum dolor sit amet consectetur, adipisicing Lorem ipsum dolor sit amet consectetur, adipisicing Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdam velit impedit eos perspicLorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdam velit impedit eos perspicLorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdam velit impedit eos perspicLorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet ducimus nisi, ea nesciunt ratione quaerat? Consectetur eum non dolorum alias autem quibusdam velit impedit eos perspicLorem ipsum dolor sit amet consectetur, adipisicing elit."
+            },
+            {
+                type: "chart",
+                config: {
+                    type: "stackbar",
+                    title: "Monthly Sales Distribution",
+                    description: "This chart shows product-wise sales trends over the year.",
+                    source: "sampleData",
+                    options: {
+                        xKey: "Month",
+                        yKeys: ["TVs", "Mobile Phones", "Laptops"]
+                    }
+                }
+            },
+            {
+                type: "chart",
+                config: {
+                    type: "pie",
+                    title: "Product Contribution Breakdown",
+                    description: "This pie chart represents the percentage contribution of each product category.",
+                    source: "sampleData",
+                    options: {
+                        monthIndex: 0,
+                        keys: ["TVs", "Mobile Phones", "Laptops"]
+                    }
+                }
+            },
+            {
+                type: "chart",
+                config: {
+                    type: "bubble",
+                    title: "Sales Volume vs Product Performance",
+                    description: "Bubble size indicates total sales while position represents product performance across months.",
+                    source: "sampleData",
+                    options: {
+                        xKey: "TVs",
+                        yKey: "Mobile Phones",
+                        zKey: "Laptops"
+                    }
+                }
+            },
+            {
+                type: "table",
+                config: {
+                    title: "Monthly Product Sales Table",
+                    source: "sampleData",
+                    columns: ["Month", "TVs", "Mobile Phones", "Laptops", "Total"]
+                }
+            },
+            {
+                type: "text",
+                value: "consectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, ametconsectetur, adipisicing elit. Debitis dicta autem facere nobis ut quis, amet"
+            }
+        ]
+    },
+    {
+        id: "03",
+        topic: "Conclusion",
+        bg: assets.background3,
         content: [
             {
                 type: "text",
