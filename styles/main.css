@@ -82,9 +82,10 @@ body {
 
 /* Header */
 .page-header {
-    height: 110px;
+    height: 100px;
     width: 100%;
-}
+    margin-bottom: 10px;
+}   
 
 .page-header-img {
     width: 100%;
@@ -273,7 +274,6 @@ media print {
     }
 }
 
-/* Add these styles for better print layout */
 @page {
     size: A4 portrait;
     margin: 0;
@@ -292,24 +292,6 @@ media print {
     margin: 0;
 }
 
-/* Fix for Webkit browsers (Chrome, Safari) */
-@media print {
-    html, body {
-        width: 210mm;
-        height: 297mm;
-        margin: 0 auto !important;
-    }
-}
-
-/* Fix for Firefox */
-@-moz-document url-prefix() {
-    @media print {
-        body {
-            width: 210mm;
-            height: 297mm;
-        }
-        .report-page {
-            break-after: page;
-        }
-    }
+::-webkit-scrollbar{
+    display :none;
 }

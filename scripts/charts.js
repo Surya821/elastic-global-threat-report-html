@@ -114,7 +114,7 @@ class ChartRenderer {
         const bubbleData = data.map(item => ({
             x: item[config.options.xKey],
             y: item[config.options.yKey],
-            r: Math.sqrt(item[config.options.zKey]) * 2, // Scale bubble size
+            r: Math.floor(Math.sqrt(item[config.options.zKey]) * 2), // Scale bubble size
             month: item.Month
         }));
         
@@ -171,46 +171,6 @@ class ChartRenderer {
         });
     }
     
-    static createSimpleBarChart(config, containerId) {
-        const canvas = document.getElementById(containerId);
-        if (!canvas) return null;
-        
-        const ctx = canvas.getContext('2d');
-        const data = window.ReportData.sampleData;
-        
-        return new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: data.map(item => item.Month),
-                datasets: [{
-                    label: 'Laptops',
-                    data: data.map(item => item.Laptops),
-                    backgroundColor: this.COLORS[2],
-                    borderColor: this.COLORS[2],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    x: {
-                        display: false
-                    },
-                    y: {
-                        beginAtZero: true,
-                        display: false
-                    }
-                },
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
-    }
-    
     static renderChart(config, containerId) {
         if (!config || !containerId) return null;
         
@@ -221,13 +181,10 @@ class ChartRenderer {
                 return this.createPieChart(config, containerId);
             case 'bubble':
                 return this.createBubbleChart(config, containerId);
-            case 'simplebar':
-                return this.createSimpleBarChart(config, containerId);
             default:
                 return null;
         }
     }
 }
 
-// Export for use in other scripts
 window.ChartRenderer = ChartRenderer;

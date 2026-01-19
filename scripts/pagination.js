@@ -6,26 +6,18 @@ class PaginationManager {
         this.currentPage = 0;
         this.totalPages = 0;
         this.chartInstances = {};
-        
-        // REMOVED: createNavigation(paginationManager);
-        // REMOVED: bindEvents();
-        
         this.init();
     }
     
     init() {
-        // REMOVED: this.bindEvents();
         this.generateAllPages();
-        // REMOVED: this.updateNavigation();
         this.scrollToCurrentPage();
     }
     
     generateAllPages() {
-        // Clear container
         this.container.innerHTML = '';
         this.chartInstances = {};
         
-        // Generate pages in order
         const pages = [
             this.createFirstPage(),
             this.createSecondPage(),

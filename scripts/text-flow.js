@@ -1,6 +1,5 @@
-// scripts/text-flow.js - FIXED TO CONTINUE TEXT AFTER TABLE IN SAME PAGE
 class TextFlowCalculator {
-    static PAGE_HEIGHT = 1122; // pixels
+    static PAGE_HEIGHT = 1122; 
     static HEADER_HEIGHT = 110;
     static FOOTER_HEIGHT = 120;
     static BODY_VERTICAL_PADDING = 220;
@@ -12,7 +11,6 @@ class TextFlowCalculator {
     static TABLE_ROW_HEIGHT = 32;
     static TABLE_HEADER_HEIGHT = 40;
     
-    // Temporary element for measurements
     static tempElement = null;
     
     static getTempElement() {

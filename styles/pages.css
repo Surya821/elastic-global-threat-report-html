@@ -25,14 +25,14 @@
 .logo-container {
     margin-top: 10mm;
     /* mt-10 */
-    margin-left: 20mm;
     /* ml-20 */
-    margin-bottom: 20mm;
+    margin-bottom: 10mm;
 }
 
 .page-logo {
-    width: 200px;
+    width: 350px;
     height: auto;
+
 }
 
 .title-container {
@@ -41,7 +41,7 @@
 }
 
 .title-line-1 {
-    font-size: 9rem;
+    font-size: 150px;
     /* text-9xl */
     background: linear-gradient(to bottom, #ee4c96, #b852a8);
     -webkit-background-clip: text;
@@ -51,7 +51,7 @@
 }
 
 .title-line-2 {
-    font-size: 9rem;
+    font-size: 150px;
     background: linear-gradient(to bottom, #f48dbd, #f7b5d3);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -61,7 +61,7 @@
 }
 
 .title-line-3 {
-    font-size: 9rem;
+    font-size: 150px;
     background: linear-gradient(to bottom, #f4a2cd, #fceef5);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -149,6 +149,7 @@
     border-top: 1px solid white;
     padding-top: 0px;
     margin-top: auto;
+    margin-right: 80px;
 }
 
 .toc-footer-content {
