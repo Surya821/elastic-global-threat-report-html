@@ -1,23 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
-    try {        
-        // Check if data is loaded
-        if (!window.ReportData) {
-            return;
-        }
-        
-        // Create pagination manager
+    try {
+        if (!window.ReportData) return;
+
         const paginationManager = new PaginationManager('reportContainer');
         window.paginationManager = paginationManager;
-        
-        // Initialize all charts after a delay to ensure DOM is ready
-        setTimeout(() => {            
-            // Initialize charts on all pages
+
+        // Disable chart animations (CRITICAL)
+        Chart.defaults.animation = false;
+
+        setTimeout(() => {
             for (let i = 0; i < paginationManager.totalPages; i++) {
                 paginationManager.initializeChartsOnPage(i);
             }
-        }, 1000);
-        
+        }, 500);
+
     } catch (error) {
-        console.error('Error:', error);
+        console.error(error);
     }
 });
+
+window.downloadPDF = async function () {
+    await generatePDF();
+};

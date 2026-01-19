@@ -11,23 +11,22 @@ class PaginationManager {
 
     init() {
         this.generateAllPages();
-        this.scrollToCurrentPage();
     }
 
     generateAllPages() {
-        this.container.innerHTML = '';
+        this.container.innerHTML = "";
         this.chartInstances = {};
 
         const pages = [
             this.createFirstPage(),
             this.createSecondPage(),
-            ...this.createContentPages()
+            ...this.createContentPages(),
+            this.createDownloadPage(), // ✅ LAST PAGE
         ];
 
         this.pages = pages;
         this.totalPages = pages.length;
 
-        // Append all pages to container
         pages.forEach((page, index) => {
             page.dataset.pageIndex = index;
             this.container.appendChild(page);
@@ -45,9 +44,9 @@ class PaginationManager {
     // REMOVE the entire createNavigation method
 
     createFirstPage() {
-        const page = document.createElement('div');
-        page.className = 'report-page first-page';
-        page.id = 'page-1';
+        const page = document.createElement("div");
+        page.className = "report-page first-page";
+        page.id = "page-1";
 
         page.innerHTML = `
             <div class="page-content">
@@ -67,7 +66,9 @@ class PaginationManager {
     }
 
     generateTOCData() {
-        const pages = window.TextFlowCalculator.generatePages(window.ReportData.topicData);
+        const pages = window.TextFlowCalculator.generatePages(
+            window.ReportData.topicData,
+        );
         const toc = [];
 
         pages.forEach((page, index) => {
@@ -76,7 +77,7 @@ class PaginationManager {
                     id: page.topic.id,
                     title: page.topic.topic,
                     pageNumber: page.pageNumber,
-                    anchor: `#page-${index + 3}`
+                    anchor: `#page-${index + 3}`,
                 });
             }
         });
@@ -85,9 +86,9 @@ class PaginationManager {
     }
 
     createSecondPage() {
-        const page = document.createElement('div');
-        page.className = 'report-page second-page';
-        page.id = 'page-2';
+        const page = document.createElement("div");
+        page.className = "report-page second-page";
+        page.id = "page-2";
 
         const tocData = this.generateTOCData();
 
@@ -102,23 +103,27 @@ class PaginationManager {
     
                 <div class="toc-content">
                     <table class="toc-table">
-                        ${tocData.map((item, index) => `
-                            <tr>
-                                <td class="toc-number">
-                                    ${String(index + 1).padStart(2, '0')}
-                                </td>
-    
-                                <td class="toc-title">
-                                    <a href="${item.anchor}">
-                                        ${item.title}
-                                    </a>
-                                </td>
-    
-                                <td class="toc-page">
-                                    ${String(item.pageNumber).padStart(2, '0')}
-                                </td>
-                            </tr>
-                        `).join('')}
+                        ${tocData
+                        .map(
+                            (item, index) => `
+                                    <tr>
+                                        <td class="toc-number">
+                                            ${String(index + 1).padStart(2, "0")}
+                                        </td>
+            
+                                        <td class="toc-title">
+                                            <a class="toc-a" href="${item.anchor}">
+                                                ${item.title}
+                                            </a>
+                                        </td>
+            
+                                        <td class="toc-page">
+                                            ${String(item.pageNumber).padStart(2, "0")}
+                                        </td>
+                                    </tr>
+                                `,
+                        )
+                        .join("")}
                     </table>
                 </div>
     
@@ -137,19 +142,20 @@ class PaginationManager {
         return page;
     }
 
-
     createContentPages() {
         const contentPages = [];
-        const pages = window.TextFlowCalculator.generatePages(window.ReportData.topicData);
+        const pages = window.TextFlowCalculator.generatePages(
+            window.ReportData.topicData,
+        );
 
         pages.forEach((pageData, index) => {
-            const page = document.createElement('div');
-            page.className = 'report-page content-page';
+            const page = document.createElement("div");
+            page.className = "report-page content-page";
             page.id = `page-${index + 3}`;
 
             page.style.backgroundImage = `url(${pageData.topic.bg})`;
-            page.style.backgroundSize = 'cover';
-            page.style.backgroundPosition = 'top';
+            page.style.backgroundSize = "cover";
+            page.style.backgroundPosition = "top";
 
             page.innerHTML = `
             ${this.createWatermark()}
@@ -171,7 +177,7 @@ class PaginationManager {
                                     GLOBAL THREAT REPORT 2025
                                 </div>
                                 <div class="footer-right">
-                                    ${pageData.pageNumber < 10 ? '0' + pageData.pageNumber : pageData.pageNumber}
+                                    ${pageData.pageNumber < 10 ? "0" + pageData.pageNumber : pageData.pageNumber}
                                 </div>
                             </div>
                         </div>
@@ -186,22 +192,22 @@ class PaginationManager {
     }
 
     renderPageContent(pageData) {
-        let html = '';
+        let html = "";
 
         if (pageData.isFirstPage) {
             html += `<h1 class="topic-title">${pageData.topic.topic}</h1>`;
         }
 
         pageData.content.forEach((block, index) => {
-            if (block.type === 'text') {
+            if (block.type === "text") {
                 html += `<p class="text-content">${block.value}</p>`;
-            } else if (block.type === 'chart') {
+            } else if (block.type === "chart") {
                 const chartId = `chart-${pageData.pageNumber}-${index}`;
                 html += `
                     <div class="chart-container">
-                        ${block.config.title ? `<h3 class="chart-title">${block.config.title}</h3>` : ''}
-                        ${block.config.description ? `<p class="chart-description">${block.config.description}</p>` : ''}
-                        <div class="${block.config.type === 'pie' ? 'pie-chart-wrapper' : 'chart-wrapper'}">
+                        ${block.config.title ? `<h3 class="chart-title">${block.config.title}</h3>` : ""}
+                        ${block.config.description ? `<p class="chart-description">${block.config.description}</p>` : ""}
+                        <div class="${block.config.type === "pie" ? "pie-chart-wrapper" : "chart-wrapper"}">
                             <canvas id="${chartId}"></canvas>
                         </div>
                     </div>
@@ -209,23 +215,27 @@ class PaginationManager {
 
                 // Store chart config for later initialization
                 this.chartInstances[chartId] = block.config;
-            } else if (block.type === 'table') {
+            } else if (block.type === "table") {
                 html += `
                     <div class="table-container">
-                        ${block.config.title ? `<h3 class="table-title">${block.config.title}</h3>` : ''}
+                        ${block.config.title ? `<h3 class="table-title">${block.config.title}</h3>` : ""}
                         <div class="table-wrapper">
                             <table class="data-table">
                                 <thead>
                                     <tr>
-                                        ${block.config.columns.map(col => `<th>${col}</th>`).join('')}
+                                        ${block.config.columns.map((col) => `<th>${col}</th>`).join("")}
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    ${block.config.rows.map(row => `
+                                    ${block.config.rows
+                        .map(
+                            (row) => `
                                         <tr>
-                                            ${block.config.columns.map(col => `<td>${row[col]}</td>`).join('')}
+                                            ${block.config.columns.map((col) => `<td>${row[col]}</td>`).join("")}
                                         </tr>
-                                    `).join('')}
+                                    `,
+                        )
+                        .join("")}
                                 </tbody>
                             </table>
                         </div>
@@ -244,13 +254,16 @@ class PaginationManager {
         // Find all chart canvases in this page
         const chartCanvases = page.querySelectorAll('canvas[id^="chart-"]');
 
-        chartCanvases.forEach(canvas => {
+        chartCanvases.forEach((canvas) => {
             const chartId = canvas.id;
             const config = this.chartInstances[chartId];
 
             if (config && !canvas.chartInstance) {
                 try {
-                    canvas.chartInstance = window.ChartRenderer.renderChart(config, chartId);
+                    canvas.chartInstance = window.ChartRenderer.renderChart(
+                        config,
+                        chartId,
+                    );
                     console.log(`✅ Chart created: ${chartId}`);
                 } catch (error) {
                     console.error(`❌ Error creating chart ${chartId}:`, error);
@@ -259,16 +272,25 @@ class PaginationManager {
         });
     }
 
-    // REMOVED: nextPage(), prevPage(), goToPage() methods
-
-    // REMOVED: updateNavigation() method
-
-    scrollToCurrentPage() {
-        const page = this.pages[this.currentPage];
-        if (page) {
-            page.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+    createDownloadPage() {
+        const page = document.createElement('div');
+        page.className = 'report-page download-page no-pdf';
+        page.id = 'page-download';
+    
+        page.innerHTML = `
+            <div class="page-content download-ui">
+                <h1>Download Report</h1>
+                <p>You can download the complete report as a PDF.</p>
+    
+                <button class="download-btn" onclick="downloadPDF()">
+                    Download PDF
+                </button>
+            </div>
+        `;
+    
+        return page;
     }
+    
 }
 
 // Export for use in other scripts

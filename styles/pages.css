@@ -15,11 +15,12 @@
 .year-text {
     font-size: 3rem;
     /* text-3xl */
-    background: linear-gradient(to bottom, #f29bc7, #d697d2);
+    /* background: linear-gradient(to bottom, #f29bc7, #d697d2);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; */
     background-clip: text;
     margin-bottom: 10mm;
+    color: white;
 }
 
 .logo-container {
@@ -43,18 +44,20 @@
 .title-line-1 {
     font-size: 150px;
     /* text-9xl */
-    background: linear-gradient(to bottom, #ee4c96, #b852a8);
+    /* background: linear-gradient(to bottom, #ee4c96, #b852a8);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; */
+    color: white;
     background-clip: text;
     line-height: 1;
 }
 
 .title-line-2 {
     font-size: 150px;
-    background: linear-gradient(to bottom, #f48dbd, #f7b5d3);
+    /* background: linear-gradient(to bottom, #f48dbd, #f7b5d3);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; */
+    color: white;
     background-clip: text;
     line-height: 1;
     margin-left: 20mm;
@@ -62,9 +65,10 @@
 
 .title-line-3 {
     font-size: 150px;
-    background: linear-gradient(to bottom, #f4a2cd, #fceef5);
+    /* background: linear-gradient(to bottom, #f4a2cd, #fceef5);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; */
+    color: white;
     background-clip: text;
     line-height: 1;
 }
@@ -127,22 +131,27 @@
 .toc-title {
     padding-right: 20px;
     font-size: 2rem;
-    background: linear-gradient(to bottom, #ee4c96, #b852a8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    /* background: linear-gradient(to bottom, #ee4c96, #b852a8); */
+    /* -webkit-background-clip: text; */
+    /* -webkit-text-fill-color: transparent; */
     background-clip: text;
     vertical-align: top;
     white-space: nowrap;
 }
 
+.toc-a{
+    color: white;
+    text-decoration: none;
+}
+
 .toc-page {
-    font-size: 1rem;
+    font-size: 1.2rem;
     /* text-xs */
     color: white;
     vertical-align: top;
-    padding-top: 1.5rem;
+    padding-top: 0.7rem;
     padding-right: 60px;
-
+    
 }
 
 .second-page .page-content {
@@ -257,4 +266,23 @@
 .content-page .page-inner {
     position: relative;
     z-index: 2;
+}
+
+.download-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+}
+
+.download-btn {
+    padding: 12px 28px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.download-ui{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 10%;
 }

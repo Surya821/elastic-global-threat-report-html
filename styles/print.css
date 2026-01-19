@@ -136,3 +136,7 @@
 @page :right {
     margin: 0;
 }
+
+.no-pdf {
+    display: none !important;
+}
